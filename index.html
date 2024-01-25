@@ -7,7 +7,7 @@
       name="viewport"
       content="target-densitydpi=device-dpi, initial-scale=1.0, user-scalable=no"
     />
-    <title>Home</title>
+    <title>History</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/css/line-awesome.min.css"
@@ -22,20 +22,30 @@
 
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
     <link href="assets/css/jquery.toast.css" rel="stylesheet" />
+    <link href="assets/css/style.css" rel="stylesheet" />
+    <link href="assets/css/font.css" rel="stylesheet" />
 
     <style>
-      .bg-purple {
-        background-color: var(--bs-purple);
+      .bg-header {
+        background-color: #dae2e5;
       }
 
       .bar-icon {
-        font-size: 45px;
-        color: white;
-        font-weight: bold;
+        background-size: 36px;
+        width: 35px;
+        height: 35px;
+        margin-top: 1px;
+        cursor: pointer;
+      }
+
+      .bar-icon {
+        background-image: url("data:image/svg+xml;base64,PHN2ZyBkYXRhLXYtN2QyNmIwMTI9Jycgd2lkdGg9JzIyJyBoZWlnaHQ9JzIyJyB2aWV3Qm94PScwIDAgMTYgMTYnIGZpbGw9JyM4NTlhYjUnIHhtbG5zPSdodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2Zyc+PHBhdGggZGF0YS12LTdkMjZiMDEyPScnIGZpbGwtcnVsZT0nZXZlbm9kZCcgY2xpcC1ydWxlPSdldmVub2RkJyBkPSdNMy4xNjY1OSA3LjY2NjcxQzUuODc5MjUgNy42NjY3MSA1Ljk5OTkyIDguNTg2NzEgNS45OTk5MiAxMC41QzUuOTk5OTIgMTEuNDU4NyA1Ljk5OTkyIDEyLjE0MDcgNS41OTcyNSAxMi42NEM1LjEzMzkyIDEzLjIxNTQgNC4yOTA1OSAxMy4zMzM0IDMuMTY2NTkgMTMuMzMzNEMyLjA0MjU5IDEzLjMzMzQgMS4xOTkyNSAxMy4yMTU0IDAuNzM1OTE5IDEyLjY0QzAuMzMzMjUyIDEyLjE0MDcgMC4zMzMyNTIgMTEuNDU5NCAwLjMzMzI1MiAxMC41MTY3TDAuODMzMjUyIDEwLjVIMC4zMzMyNTJDMC4zMzMyNTIgOC41ODY3MSAwLjQ1MzkxOSA3LjY2NjcxIDMuMTY2NTkgNy42NjY3MVpNMTAuNDk5OSA3LjY2NjcxQzEzLjIxMjYgNy42NjY3MSAxMy4zMzMzIDguNTg2NzEgMTMuMzMzMyAxMC41QzEzLjMzMzMgMTEuNDU4NyAxMy4zMzMzIDEyLjE0MDcgMTIuOTMwNiAxMi42NEMxMi40NjczIDEzLjIxNTQgMTEuNjIzOSAxMy4zMzM0IDEwLjQ5OTkgMTMuMzMzNEM5LjM3NTkyIDEzLjMzMzQgOC41MzI1OSAxMy4yMTU0IDguMDY5MjUgMTIuNjRDNy42NjY1OSAxMi4xNDA3IDcuNjY2NTkgMTEuNDU5NCA3LjY2NjU5IDEwLjUxNjdMOC4xNjY1OSAxMC41SDcuNjY2NTlDNy42NjY1OSA4LjU4NjcxIDcuNzg3MjUgNy42NjY3MSAxMC40OTk5IDcuNjY2NzFaTTMuMzA0MDMgOC42NjdMMy4xNjY1OSA4LjY2NjcxQzEuNDI3MjcgOC42NjY3MSAxLjMzODA3IDguNzkxNTIgMS4zMzM1IDEwLjI1MTRMMS4zMzM3OCAxMC44MjAyQzEuMzM2OTQgMTEuNDAwOCAxLjM1OTA2IDExLjgyMDIgMS41MTM5MiAxMi4wMTM0QzEuNjkwNTkgMTIuMjMyIDIuMjE1MjUgMTIuMzMzNCAzLjE2NjU5IDEyLjMzMzRDNC4xMTc5MiAxMi4zMzM0IDQuNjQyNTkgMTIuMjMxNCA0LjgxOTI1IDEyLjAxMjdDNC45OTk5MiAxMS43ODggNC45OTk5MiAxMS4yNTQ3IDQuOTk5OTIgMTAuNTE2QzQuOTk5OTIgOC44NDkyNCA0Ljk5OTkyIDguNjc0ODUgMy4zMDQwMyA4LjY2N1pNMTAuNjM3NCA4LjY2N0wxMC40OTk5IDguNjY2NzFDOC43NjA2IDguNjY2NzEgOC42NzE0MSA4Ljc5MTUyIDguNjY2ODMgMTAuMjUxNEw4LjY2NzExIDEwLjgyMDJDOC42NzAyNyAxMS40MDA4IDguNjkyNCAxMS44MjAyIDguODQ3MjUgMTIuMDEzNEM5LjAyMzkyIDEyLjIzMiA5LjU0ODU5IDEyLjMzMzQgMTAuNDk5OSAxMi4zMzM0QzExLjQ1MTMgMTIuMzMzNCAxMS45NzU5IDEyLjIzMTQgMTIuMTUyNiAxMi4wMTI3QzEyLjMzMzMgMTEuNzg4IDEyLjMzMzMgMTEuMjU0NyAxMi4zMzMzIDEwLjUxNkMxMi4zMzMzIDguODQ5MjQgMTIuMzMzMyA4LjY3NDg1IDEwLjYzNzQgOC42NjdaTTMuMTY2NTkgMC4zMzMzNzRDNS44NzkyNSAwLjMzMzM3NCA1Ljk5OTkyIDEuMjUzMzcgNS45OTk5MiAzLjE2NjcxQzUuOTk5OTIgNC4xMjUzNyA1Ljk5OTkyIDQuODA3MzcgNS41OTcyNSA1LjMwNjcxQzUuMTMzOTIgNS44ODIwNCA0LjI5MDU5IDYuMDAwMDQgMy4xNjY1OSA2LjAwMDA0QzIuMDQyNTkgNi4wMDAwNCAxLjE5OTI1IDUuODgyMDQgMC43MzU5MTkgNS4zMDY3MUMwLjMzMzI1MiA0LjgwNzM3IDAuMzMzMjUyIDQuMTI2MDQgMC4zMzMyNTIgMy4xODMzN0wwLjgzMzI1MiAzLjE2NjcxSDAuMzMzMjUyQzAuMzMzMjUyIDEuMjUzMzcgMC40NTM5MTkgMC4zMzMzNzQgMy4xNjY1OSAwLjMzMzM3NFpNMTAuNDk5OSAwLjMzMzM3NEMxMy4yMTI2IDAuMzMzMzc0IDEzLjMzMzMgMS4yNTMzNyAxMy4zMzMzIDMuMTY2NzFDMTMuMzMzMyA0LjEyNTM3IDEzLjMzMzMgNC44MDczNyAxMi45MzA2IDUuMzA2NzFDMTIuNDY3MyA1Ljg4MjA0IDExLjYyMzkgNi4wMDAwNCAxMC40OTk5IDYuMDAwMDRDOS4zNzU5MiA2LjAwMDA0IDguNTMyNTkgNS44ODIwNCA4LjA2OTI1IDUuMzA2NzFDNy42NjY1OSA0LjgwNzM3IDcuNjY2NTkgNC4xMjYwNCA3LjY2NjU5IDMuMTgzMzdMOC4xNjY1OSAzLjE2NjcxSDcuNjY2NTlDNy42NjY1OSAxLjI1MzM3IDcuNzg3MjUgMC4zMzMzNzQgMTAuNDk5OSAwLjMzMzM3NFpNMy4zMDQwMyAxLjMzMzY3TDMuMTY2NTkgMS4zMzMzN0MxLjQyNzI3IDEuMzMzMzcgMS4zMzgwNyAxLjQ1ODE4IDEuMzMzNSAyLjkxODA3TDEuMzMzNzggMy40ODY4M0MxLjMzNjk0IDQuMDY3NDcgMS4zNTkwNiA0LjQ4NjkgMS41MTM5MiA0LjY4MDA0QzEuNjkwNTkgNC44OTg3MSAyLjIxNTI1IDUuMDAwMDQgMy4xNjY1OSA1LjAwMDA0QzQuMTE3OTIgNS4wMDAwNCA0LjY0MjU5IDQuODk4MDQgNC44MTkyNSA0LjY3OTM3QzQuOTk5OTIgNC40NTQ3MSA0Ljk5OTkyIDMuOTIxMzcgNC45OTk5MiAzLjE4MjcxQzQuOTk5OTIgMS41MTU5IDQuOTk5OTIgMS4zNDE1MiAzLjMwNDAzIDEuMzMzNjdaTTEwLjYzNzQgMS4zMzM2N0wxMC40OTk5IDEuMzMzMzdDOC43NjA2IDEuMzMzMzcgOC42NzE0MSAxLjQ1ODE4IDguNjY2ODMgMi45MTgwN0w4LjY2NzExIDMuNDg2ODNDOC42NzAyNyA0LjA2NzQ3IDguNjkyNCA0LjQ4NjkgOC44NDcyNSA0LjY4MDA0QzkuMDIzOTIgNC44OTg3MSA5LjU0ODU5IDUuMDAwMDQgMTAuNDk5OSA1LjAwMDA0QzExLjQ1MTMgNS4wMDAwNCAxMS45NzU5IDQuODk4MDQgMTIuMTUyNiA0LjY3OTM3QzEyLjMzMzMgNC40NTQ3MSAxMi4zMzMzIDMuOTIxMzcgMTIuMzMzMyAzLjE4MjcxQzEyLjMzMzMgMS41MTU5IDEyLjMzMzMgMS4zNDE1MiAxMC42Mzc0IDEuMzMzNjdaJz48L3BhdGg+PC9zdmc+");
+        background-position: top left;
+        background-repeat: no-repeat;
       }
 
       .logo-img {
-        width: 100%;
+        width: 80px;
         height: 50px;
       }
 
@@ -43,6 +53,14 @@
         font-size: 45px;
         color: white;
         font-weight: bold;
+      }
+
+      .flag-img {
+        width: 35px;
+        border: 1px solid #dadada;
+        padding: 2px;
+        border-radius: 6px;
+        background: #fff;
       }
 
       .border-purple {
@@ -68,229 +86,689 @@
       }
     </style>
   </head>
-  <body style="overflow-x: hidden">
-    <div class="container">
-      <!-- header -->
-      <div class="card my-3 bg-purple">
-        <div class="card-body p-1">
-          <div class="d-flex align-items-center">
-            <div class="me-2">
-              <a
-                href="javascript::void()"
-                class="btn btn-link"
-                data-bs-toggle="offcanvas"
-                data-bs-target="#staticBackdrop"
-                aria-controls="staticBackdrop"
-              >
-                <i class="las la-bars bar-icon"></i>
-              </a>
-            </div>
+  <body style="overflow-x: hidden; background: #f6f7f9">
+    <!-- header -->
+    <div class="card mb-3 border-0 rounded-0 bg-header">
+      <div class="card-body px-3 py-1">
+        <div class="d-flex align-items-center justify-content-between">
+          <div class="me-2">
+            <a
+              href="javascript::void()"
+              class="btn btn-link bar-icon"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#staticBackdrop"
+              aria-controls="staticBackdrop"
+            >
+            </a>
+          </div>
+
+          <div>
+            <img src="image/logo.png" class="logo-img" />
+          </div>
+
+          <div>
+            <img src="image/flag.png" class="flag-img" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- content  -->
+    <div class="ft_box_12_2">
+      <div id="ProfileBlock" class="px-4">
+        <div
+          class="ft_box_shadow_2"
+          style="
+            background: #ffffff;
+            padding: 30px 20px;
+            border-left: 40px solid #5cad5e;
+            border-radius: 6px;
+          "
+        >
+          <div style="position: absolute; margin: -10px 0 0 -79px">
+            <img src="/templates/icon/5622939.png" style="width: 78px" />
+          </div>
+          <div class="ft_font_05" style="padding-left: 15px">
             <div>
-              <div class="d-flex align-items-center justify-content-between">
-                <img src="image/web-logo.png" class="logo-img" />
-                <a href="#">
-                  <i class="las la-sign-out-alt header-icon"></i>
-                </a>
+              <img src="/templates/icon/5.png" />
+              <b>UooBot - Forward and only forward</b>
+            </div>
+            <div style="margin-top: 7px">
+              <img src="/templates/icon/6.png" /> Concluding the promotion, we
+              will spend the next <b>24</b> hours in the format <b>X2</b> from
+              <b>15$</b>
+            </div>
+            <div style="margin-top: 7px">
+              <img src="/templates/icon/7.png" /> Example: You replenish your
+              wallet balance with an amount of <b>15$</b>, <b>30$</b> will be
+              credited to the account, when replenishing an amount of
+              <b>100$</b> on the account will be credited with <b>200$</b>
+            </div>
+            <div style="margin-top: 7px">
+              <img src="/templates/icon/11.png" /> You will also be assigned a
+              <b>professional</b> account status, benefits:
+            </div>
+            <div style="margin-top: 7px">
+              <img src="/templates/icon/37.png" /> Withdrawal of bonus and gift
+              funds available
+            </div>
+            <div style="margin-top: 7px">
+              <img src="/templates/icon/37.png" /> Increased rate <b>12.8%</b>
+            </div>
+            <div style="margin-top: 7px">
+              <img src="/templates/icon/37.png" /> Free addition of referrals
+              who registered without an affiliate link
+            </div>
+            <div style="margin-top: 7px">
+              <img src="/templates/icon/37.png" /> Priority support
+              <b>24</b> hours
+            </div>
+            <div style="margin-top: 7px">
+              <img src="/templates/icon/37.png" /> Card issue <b>UooCard</b>
+            </div>
+            <div style="margin-top: 7px">
+              <img src="/templates/icon/30.png" /> Promotion number:
+              <span style="color: #259128; font-weight: 600"
+                >dff7312bee8a57c86205d9916e528a19</span
+              >
+            </div>
+            <div style="margin-top: 7px">
+              <img src="/templates/icon/6.png" /> <b>UooBot</b> - not just a
+              bot, but a wallet with profits credited to your account every
+              second.
+            </div>
+          </div>
+        </div>
+
+        <div class="ft_prof_box_top_flex" style="margin-top: 20px">
+          <div class="ft_box_2_1">
+            <div class="ft_box_left">
+              <div class="ft_box_shadow_2" style="border-radius: 10px">
+                <div
+                  style="
+                    background: #ffffff;
+                    border-radius: 10px 10px 0 0;
+                    padding: 25px 10px 25px 25px;
+                  "
+                >
+                  <div style="text-align: right">
+                    <div
+                      style="
+                        position: absolute;
+                        display: inline-block;
+                        margin: -12px 0 0 -12px;
+                      "
+                    >
+                      <div class="ft_pulse"></div>
+                    </div>
+                  </div>
+                  <div style="display: table; width: 100%">
+                    <div style="display: table-cell; width: 100%">
+                      <div class="ft_font_02">Your wallet</div>
+                      <div
+                        id="ft_balance_1"
+                        class="ft_font_09"
+                        style="margin-top: 20px; color: #387e37"
+                      >
+                        <span style="font-size: 28px">$ 0.</span>467037637
+                      </div>
+                      <input
+                        id="ft_return_1"
+                        name="ft_return_1"
+                        type="hidden"
+                        value="0.467037637"
+                      />
+                      <input
+                        id="ft_return_2"
+                        name="ft_return_2"
+                        type="hidden"
+                        value="0.000000323"
+                      />
+                    </div>
+                    <div style="display: table-cell">
+                      <div
+                        style="
+                          border-left: 2px dashed #dddddd;
+                          padding-left: 12px;
+                          min-width: 90px;
+                        "
+                      >
+                        <div class="ft_font_02">In a day</div>
+                        <div class="ft_font_10" style="padding: 27px 0 3px 0">
+                          +<span id="ft_procent">5.20</span>%
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="ft_prof_box_top_flex">
+                  <div class="ft_box_3_1">
+                    <div style="padding-right: 1px">
+                      <div
+                        onclick="Sen.Plus();"
+                        class="ft_balance_button_profile_plus ft_font_58"
+                      >
+                        Top up
+                      </div>
+                    </div>
+                  </div>
+                  <div class="ft_box_3_2">
+                    <div style="padding-left: 1px">
+                      <div
+                        onclick="Sen.Back();"
+                        class="ft_balance_button_profile_back ft_font_58"
+                      >
+                        Withdraw
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  style="
+                    background: #425b63;
+                    border-radius: 0 0 10px 10px;
+                    padding: 25px 30px 25px 30px;
+                    border-top: 1px solid #ffffff;
+                  "
+                >
+                  <div class="ft_font_64" style="color: #ffffff">
+                    Top up your wallet or save up to <b>25$</b> to receive per
+                    day <b>5.4%</b> over the amount in the wallet.
+                  </div>
+                </div>
+              </div>
+              <div
+                class="ft_box_shadow_2"
+                style="
+                  padding: 25px 30px 23px 30px;
+                  border-radius: 10px;
+                  background: #ffffff;
+                  margin-top: 20px;
+                "
+              >
+                <div style="display: table; width: 100%">
+                  <div style="display: table-cell; width: 100%">
+                    <div class="ft_font_02">Investment bonus</div>
+                    <div
+                      id="ft_balance_2"
+                      class="ft_font_09"
+                      style="margin-top: 20px; color: #1d84a3"
+                    >
+                      <span style="font-size: 28px">$ 36.</span>00
+                    </div>
+                  </div>
+                  <div style="display: table-cell">
+                    <div
+                      style="
+                        border-left: 2px dashed #dddddd;
+                        padding-left: 12px;
+                      "
+                    >
+                      <div class="ft_font_02">In a day</div>
+                      <div class="ft_font_10" style="padding: 27px 0 3px 0">
+                        +0.01%
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="ft_font_05"
+                  style="
+                    margin: 20px -30px 0 -30px;
+                    background: #f5f3f1;
+                    padding: 18px 20px 19px 20px;
+                  "
+                >
+                  Profits from the investment bonus are transferred to your
+                  wallet every second and become available for withdrawal.
+                </div>
+              </div>
+              <div class="ft_prof_box_top_flex" style="margin-top: 20px">
+                <div class="ft_box_4_1">
+                  <div class="ft_box_left">
+                    <div
+                      class="ft_box_shadow_2"
+                      style="
+                        padding: 25px 15px 15px 15px;
+                        border-radius: 10px;
+                        background: #ffffff;
+                        text-align: center;
+                      "
+                    >
+                      <div class="ft_font_02">Community</div>
+                      <div style="margin-top: 15px">
+                        <div
+                          style="
+                            background-image: url('/templates/Default/img/social_1.png');
+                            background-position: -168px 0;
+                            width: 40px;
+                            height: 40px;
+                            display: inline-block;
+                          "
+                        ></div>
+                      </div>
+                      <div
+                        class="ft_font_05"
+                        style="margin: 15px -10px 0 -10px"
+                      >
+                        <b style="font-size: 18px">+3$</b> subscription gift
+                        bonus
+                      </div>
+                      <div style="padding-top: 15px">
+                        <div class="ft_font_13" style="padding: 12px 0 11px 0">
+                          Got it!
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="ft_box_4_2 ft_box_top_1">
+                  <div class="ft_box_righ">
+                    <div
+                      class="ft_box_shadow_2"
+                      style="
+                        padding: 25px 15px 15px 15px;
+                        border-radius: 10px;
+                        background: #ffffff;
+                        text-align: center;
+                      "
+                    >
+                      <div class="ft_font_02">Community</div>
+                      <div style="margin-top: 15px">
+                        <div
+                          style="
+                            background-image: url('/templates/Default/img/telegram.png');
+                            background-size: 40px 40px;
+                            width: 40px;
+                            height: 40px;
+                            display: inline-block;
+                            border-radius: 100%;
+                          "
+                        ></div>
+                      </div>
+                      <div
+                        class="ft_font_05"
+                        style="margin: 15px -10px 0 -10px"
+                      >
+                        <b style="font-size: 18px">+3$</b> subscription gift
+                        bonus
+                      </div>
+                      <div style="padding-top: 15px">
+                        <div class="ft_font_13" style="padding: 12px 0 11px 0">
+                          Got it!
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="ft_box_2_2 ft_box_top_1">
+            <div class="ft_box_righ">
+              <div>
+                <div style="display: table; width: 100%">
+                  <div style="display: table-cell; width: 50%">
+                    <div style="padding-right: 10px">
+                      <div
+                        class="ft_box_shadow_2"
+                        style="
+                          padding: 20px 10px 20px 10px;
+                          border-radius: 10px;
+                          background: #ffffff;
+                          text-align: center;
+                        "
+                      >
+                        <div>
+                          <div style="display: inline-block">
+                            <div>
+                              <img
+                                src="/templates/Default/img/pr.png"
+                                style="width: 35px"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                        <div class="ft_font_05" style="margin-top: 10px">
+                          To the first replenishment<br />of your wallet
+                        </div>
+                        <div
+                          class="ft_font_10"
+                          style="
+                            margin-top: 12px;
+                            border-top: 1px dashed #dcdcdc;
+                            padding-top: 16px;
+                            font-size: 24px;
+                          "
+                        >
+                          +5%
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div style="display: table-cell; width: 50%">
+                    <div style="padding-left: 10px">
+                      <div
+                        class="ft_box_shadow_2"
+                        style="
+                          padding: 20px 10px 20px 10px;
+                          border-radius: 10px;
+                          background: #ffffff;
+                          text-align: center;
+                        "
+                      >
+                        <div>
+                          <div style="display: inline-block">
+                            <div>
+                              <img
+                                src="/templates/Default/img/user.png"
+                                style="width: 35px"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                        <div class="ft_font_05" style="margin-top: 10px">
+                          For registration of the first<br /><b>20</b> referrals
+                        </div>
+                        <div
+                          class="ft_font_10"
+                          style="
+                            margin-top: 12px;
+                            border-top: 1px dashed #dcdcdc;
+                            padding-top: 16px;
+                            font-size: 24px;
+                          "
+                        >
+                          +50$
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div style="margin-top: 20px">
+                <div style="display: table; width: 100%">
+                  <div style="display: table-cell; width: 50%">
+                    <div style="padding-right: 10px">
+                      <div
+                        onclick="Sen.Rise();"
+                        class="ft_box_shadow_2"
+                        style="
+                          padding: 20px 10px 20px 10px;
+                          border-radius: 10px;
+                          background: #ffffff;
+                          text-align: center;
+                          cursor: pointer;
+                        "
+                      >
+                        <div
+                          style="position: absolute; margin: -18px 0 0 -18px"
+                        >
+                          <img
+                            src="/templates/Default/img/click.png"
+                            style="width: 35px"
+                          />
+                        </div>
+                        <div class="ft_font_07">How to increase profit?</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div style="display: table-cell; width: 50%">
+                    <div style="padding-left: 10px">
+                      <div
+                        onclick="Sen.Bonus();"
+                        class="ft_box_shadow_2"
+                        style="
+                          padding: 20px 10px 20px 10px;
+                          border-radius: 10px;
+                          background: #ffffff;
+                          text-align: center;
+                          cursor: pointer;
+                        "
+                      >
+                        <div
+                          style="position: absolute; margin: -18px 0 0 -18px"
+                        >
+                          <img
+                            src="/templates/Default/img/click.png"
+                            style="width: 35px"
+                          />
+                        </div>
+                        <div class="ft_font_07">How to get bonuses?</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="ft_box_shadow_2"
+                style="
+                  padding: 25px 30px 25px 30px;
+                  border-radius: 10px;
+                  background: #ffffff;
+                  margin-top: 20px;
+                "
+              >
+                <div class="ft_font_02">Affiliate program</div>
+                <div class="ft_font_05" style="margin: 15px 0 0 0px">
+                  Company <b>UooBot</b> provides a generous reward of
+                  <b id="ft_friend_amount_1">12</b><b>$</b> for each registered
+                  person through a referral link, as well as deductions for a
+                  three-level affiliate program <b>7% / 3% / 1%</b> from the
+                  amount of each wallet replenishment by a referral.<br /><br />
+                </div>
+                <div
+                  class="ft_font_11"
+                  style="
+                    margin: 25px -30px 0 -30px;
+                    background: #f5f3f1;
+                    padding: 25px 30px;
+                  "
+                >
+                  <span id="ft_friend_amount_2">12</span>$ for each referral
+                </div>
+                <div class="ft_font_05" style="margin-top: 25px">
+                  Copy your referral link and send it to friends and
+                  acquaintances as a recommendation to register,
+                  <img
+                    src="/templates/Default/img/lenta.png"
+                    style="width: 16px"
+                  />
+                  <span
+                    onclick="Sen.Invitations();"
+                    class="ft_font_49"
+                    style="border-bottom: 1px dashed #1d891b; cursor: pointer"
+                    >How to invite?</span
+                  >
+                </div>
+                <div style="margin-top: 20px">
+                  <div style="position: relative">
+                    <input
+                      id="ft_referer"
+                      class="ft_data_in_text ft_data_in_input ft_border_box"
+                      type="text"
+                      name="ft_referer"
+                      required=""
+                      placeholder=" "
+                      aria-required="true"
+                      inputmode="text"
+                      autocomplete="off"
+                      maxlength="1000"
+                      value="https://oolink.store/ref715762_t7v"
+                    />
+                    <span
+                      class="ft_data_in_text_title ft_data_in_title fk_select_none"
+                      >Your link</span
+                    >
+                  </div>
+                </div>
+                <div style="padding-top: 25px">
+                  <div
+                    onclick="ClipData('ft_referer', 'https://oolink.store/ref715762_t7v');"
+                    class="ft_balance_button_plus ft_font_06"
+                  >
+                    Copy
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ft_prof_box_top_flex" style="margin-top: 20px">
+          <div class="ft_box_7_1">
+            <div class="ft_box_left_3">
+              <div
+                class="ft_box_shadow_2"
+                style="
+                  padding: 25px 15px 25px 25px;
+                  border-radius: 10px;
+                  background: #ffffff;
+                "
+              >
+                <div class="ft_font_11">Top-up amount</div>
+                <div class="ft_font_41" style="margin-top: 15px">
+                  <div style="display: table; width: 100%">
+                    <div style="display: table-cell">
+                      <span id="ft_unit_data_1_1">30 378 821</span> $
+                    </div>
+                    <div
+                      style="
+                        display: table-cell;
+                        text-align: right;
+                        color: #73a567;
+                      "
+                    >
+                      + <span id="ft_unit_data_1_2">478 141</span> $
+                      <span style="font-size: 12px">▲</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="ft_box_7_1 ft_box_top_1">
+            <div class="ft_box_center_3">
+              <div
+                class="ft_box_shadow_2"
+                style="
+                  padding: 25px 15px 25px 25px;
+                  border-radius: 10px;
+                  background: #ffffff;
+                "
+              >
+                <div class="ft_font_11">Payout amount</div>
+                <div class="ft_font_41" style="margin-top: 15px">
+                  <div style="display: table; width: 100%">
+                    <div style="display: table-cell">
+                      <span id="ft_unit_data_2_1">10 980 597</span> $
+                    </div>
+                    <div
+                      style="
+                        display: table-cell;
+                        text-align: right;
+                        color: #73a567;
+                      "
+                    >
+                      + <span id="ft_unit_data_2_2">180 328</span> $
+                      <span style="font-size: 12px">▲</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="ft_box_7_1 ft_box_top_1">
+            <div class="ft_box_righ_3">
+              <div
+                class="ft_box_shadow_2"
+                style="
+                  padding: 25px 15px 25px 25px;
+                  border-radius: 10px;
+                  background: #ffffff;
+                "
+              >
+                <div class="ft_font_11">Users</div>
+                <div class="ft_font_41" style="margin-top: 15px">
+                  <div style="display: table; width: 100%">
+                    <div style="display: table-cell">
+                      <span id="ft_unit_data_3_1">1 129 076</span>
+                      <span class="ft_font_05">ppl.</span>
+                    </div>
+                    <div
+                      style="
+                        display: table-cell;
+                        text-align: right;
+                        color: #73a567;
+                      "
+                    >
+                      + <span id="ft_unit_data_3_2">2 834</span>
+                      <span style="font-size: 12px">▲</span>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- account -->
-      <div class="d-flex align-items-center mb-3">
-        <div class="me-3">
-          <img
-            src="image/logo.png"
-            class="card-img rounded-circle"
-            style="width: 70px; height: 70px"
-          />
-        </div>
-        <div>
-          <h5 class="text-capitalize fw-bold mb-2">Alamingemain@gmail.com</h5>
-          <h5 class="text-capitalize">Id: 9340928394</h5>
-        </div>
-      </div>
-
-      <!-- four item box  -->
-      <div class="card bg-purple mb-3">
-        <div class="card-body p-2">
-          <div
-            class="row row-cols-4 justify-content-center align-items-center g-2"
-          >
-            <div class="col">
-              <a
-                href=""
-                class="d-block text-decoration-none p-3 rounded rounded-2 bg-primary text-white fs-6 text-center"
-              >
-                Deposit
-              </a>
-            </div>
-            <div class="col">
-              <a
-                href=""
-                class="d-block text-decoration-none p-3 rounded rounded-2 bg-primary text-white fs-6 text-center"
-              >
-                Witdra
-              </a>
-            </div>
-            <div class="col">
-              <a
-                href=""
-                class="d-block text-decoration-none p-3 rounded rounded-2 bg-primary text-white fs-6 text-center"
-              >
-                Task
-              </a>
-            </div>
-            <div class="col">
-              <a
-                href=""
-                class="d-block text-decoration-none p-3 rounded rounded-2 bg-primary text-white fs-6 text-center"
-              >
-                Reffer
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- verify action  -->
-      <div class="card bg-purple mb-3">
-        <div class="card-body p-2">
-          <div class="d-flex justify-content-between align-items-center">
-            <p class="mb-0 fs-4 text-white">Account Status</p>
-            <a href="#" class="btn btn-light">Verify</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- two box  -->
-
-      <div class="d-flex align-items-center mb-3">
-        <div class="card bg-purple me-3 w-75" style="height: 195px">
-          <div class="card-body p-2 text-center">
-            <div class="py-2 px-2" style="border-bottom: 3px dashed white">
-              <p class="text-white mb-1 fs-3">Your Balance</p>
-              <p class="text-white fw-bold mb-0 fs-3">798933</p>
-            </div>
-            <div class="py-2 px-2">
-              <p class="text-white mb-1 fs-3">Total Withdraw</p>
-              <p class="text-white fw-bold mb-0 fs-3">898234</p>
-            </div>
-          </div>
-        </div>
-        <div style="height: 195px">
-          <div class="bg-purple p-2 mb-2 rounded rounded-2">
-            <a
-              href=""
-              class="d-block fs-3 px-3 py-4 bg-primary text-white rounded rounded-2 text-decoration-none text-center"
-              >Shop</a
-            >
-          </div>
-
-          <div class="bg-purple p-1 mb-2 rounded rounded-2">
-            <a
-              href=""
-              class="d-block fs-3 px-3 py-4 bg-primary text-white rounded rounded-2 text-decoration-none text-center"
-              >Income</a
-            >
-          </div>
-        </div>
-      </div>
-
-      <!-- four item box  -->
-      <div class="card bg-purple mb-3">
-        <div class="card-body p-2">
-          <div
-            class="row row-cols-4 justify-content-center align-items-center g-2"
-          >
-            <div class="col">
-              <a
-                href=""
-                class="d-block text-decoration-none p-3 rounded rounded-2 bg-primary text-white fs-6 text-center"
-              >
-                Team
-              </a>
-            </div>
-            <div class="col">
-              <a
-                href=""
-                class="d-block text-decoration-none p-3 rounded rounded-2 bg-primary text-white fs-6 text-center"
-              >
-                Suport
-              </a>
-            </div>
-            <div class="col">
-              <a
-                href=""
-                class="d-block text-decoration-none p-3 rounded rounded-2 bg-primary text-white fs-6 text-center"
-              >
-                Info
-              </a>
-            </div>
-            <div class="col">
-              <a
-                href=""
-                class="d-block text-decoration-none p-3 rounded rounded-2 bg-primary text-white fs-6 text-center"
-              >
-                App
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- social media  -->
-      <div class="mb-3">
-        <div class="card border-purple">
-          <div class="card-body p-2">
-            <p class="mb-2 fs-3 text-dark">Our Social Media</p>
-            <div class="d-flex g-3 align-items-center">
-              <a href="" class="btn btn-danger fs-5 me-2">
-                <i class="lab la-facebook-f"></i>
-              </a>
-
-              <a href="" class="btn btn-danger fs-5 me-2">
-                <i class="lab la-twitter"></i>
-              </a>
-
-              <a href="" class="btn btn-danger fs-5 me-2">
-                <i class="lab la-youtube"></i>
-              </a>
-
-              <a href="" class="btn btn-danger fs-5 me-2">
-                <i class="lab la-linkedin-in"></i>
-              </a>
-
-              <a href="" class="btn btn-danger fs-5 me-2">
-                <i class="lab la-telegram-plane"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- payment image  -->
-      <div class="card border-purple">
-        <div class="card-body p-2">
-          <div class="d-flex align-items-center justify-content-between">
-            <img src="image/bkash.png" class="payment-img" />
-            <img src="image/nagad.png" class="payment-img" />
-            <img src="image/rocket.png" class="payment-img" />
-          </div>
-        </div>
-      </div>
-
       <!-- footer  -->
-      <div class="position-fixed bottom-0 mx-auto footer">
-        <div class="d-flex justify-content-around align-items-center">
-          <a href="" class="d-block text-purple fs-1">
-            <i class="las la-home"></i>
-          </a>
-
-          <a href="" class="d-block text-purple fs-1">
-            <i class="las la-user-circle"></i>
-          </a>
+      <div style="padding: 25px 0 25px 0">
+        <div class="ft_prof_box_top_flex">
+          <div class="ft_box_13_1">
+            <div class="ft_box_left">
+              <div
+                style="
+                  background: url('image/logo.png');
+                  background-size: 110px;
+                  background-position: top left;
+                  background-repeat: no-repeat;
+                  min-height: 77px;
+                  padding: 18px 0 0 120px;
+                "
+              >
+                <div class="ft_font_60">
+                  © 2015—2024 Estonia, Tallin, Viru Väljak 2, 10111, office 79.
+                  All rights reserved.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="ft_box_13_2">
+            <div class="ft_box_righ">
+              <div class="ft_dop_profile_8">
+                <div class="ft_prof_box_top_flex">
+                  <div class="ft_box_14_1">
+                    <div class="ft_box_left">
+                      <div
+                        class="ft_menu_button_vk"
+                        style="padding: 2px 0 5px 35px; margin-top: 8px"
+                      >
+                        <div class="ft_font_65 ft_in_bottom_top_txt_2">
+                          Vkontakte
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="ft_box_14_2">
+                    <div class="ft_box_righ">
+                      <div
+                        class="ft_menu_button_tg"
+                        style="padding: 0 0 5px 35px; margin-top: 10px"
+                      >
+                        <div
+                          onclick="Page.Goo('https://t.me/uoo_info');"
+                          class="ft_font_65 ft_in_bottom_top_txt_2"
+                        >
+                          Telegram
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -300,81 +778,247 @@
       tabindex="-1"
       id="staticBackdrop"
       aria-labelledby="staticBackdropLabel"
-      style="width: 300px;"
+      style="width: 300px; background-color: #f6f7f9"
     >
-      <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="staticBackdropLabel">
-            <img src="image/web-logo.png" class="logo-img" />
-        </h5>
+      <div class="offcanvas-header d-flex justify-content-end">
         <button
           type="button"
-          class="btn-close"
+          class="btn-close fs-4 fw-bold text-dark text-end"
           data-bs-dismiss="offcanvas"
           aria-label="Close"
         ></button>
       </div>
 
-      <div class="offcanvas-body bg-light">
-        <div class="mb-3">
-            <button class="btn btn-primary w-100 mb-2">Earnings</button>
-            <div class="d-flex justify-content-around align-items-center ">
-                <div class="" style="width: 100px;">
-                    <div class="bg-warning text-white fw-bold text-center fs-4 py-3" style="border-top-right-radius: 10px; border-top-left-radius: 10px;">
-                        Tk
-                    </div>
-                    <div class="bg-primary text-white fw-bold  text-center fs-3 py-2">
-                        Total
-                    </div>
+      <div class="offcanvas-body">
+        <div style="padding: 0px 30px 30px 30px">
+          <div
+            onclick="Page.Go('/id715762');"
+            class="fk_select_none ft_sing_button_1_1"
+          >
+            <div style="display: table; width: 100%">
+              <div
+                style="display: table-cell; vertical-align: middle; width: 50px"
+              >
+                <div class="ft_sing_button_1_2">
+                  <div style="padding: 7px 0 0 7px">
+                    <div class="ft_sing_button_1_4_1"></div>
+                  </div>
                 </div>
-
-                <div class="" style="width: 100px;">
-                    <div class="bg-warning text-white fw-bold text-center fs-4 py-3" style="border-top-right-radius: 10px; border-top-left-radius: 10px;">
-                        Tk
-                    </div>
-                    <div class="bg-primary text-white fw-bold  text-center fs-3 py-2">
-                        Today
-                    </div>
+              </div>
+              <div style="display: table-cell; vertical-align: middle">
+                <div class="ft_sing_button_1_3" style="margin-top: -1px">
+                  Your office
                 </div>
-                
+              </div>
             </div>
+          </div>
+          <div
+            style="height: 1px; background: #d1d1d1; margin: 20px 0; width: 75%"
+          ></div>
+          <div onclick="Sen.Plus();" class="fk_select_none ft_sing_button_1_1">
+            <div style="display: table; width: 100%">
+              <div
+                style="display: table-cell; vertical-align: middle; width: 50px"
+              >
+                <div class="ft_sing_button_1_2">
+                  <div style="padding: 7px 0 0 7px">
+                    <div class="ft_sing_button_1_4_2"></div>
+                  </div>
+                </div>
+              </div>
+              <div style="display: table-cell; vertical-align: middle">
+                <div class="ft_sing_button_1_3" style="margin-top: -1px">
+                  Fill up a purse
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            onclick="Sen.Back();"
+            class="fk_select_none ft_sing_button_1_1"
+            style="margin-top: 10px"
+          >
+            <div style="display: table; width: 100%">
+              <div
+                style="display: table-cell; vertical-align: middle; width: 50px"
+              >
+                <div class="ft_sing_button_1_2">
+                  <div style="padding: 7px 0 0 7px">
+                    <div class="ft_sing_button_1_4_3"></div>
+                  </div>
+                </div>
+              </div>
+              <div style="display: table-cell; vertical-align: middle">
+                <div class="ft_sing_button_1_3" style="margin-top: -1px">
+                  Withdraw
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="height: 1px; background: #d1d1d1; margin: 20px 0; width: 75%"
+          ></div>
+          <div onclick="Sen.Cloud();" class="fk_select_none ft_sing_button_1_1">
+            <div style="display: table; width: 100%">
+              <div
+                style="display: table-cell; vertical-align: middle; width: 50px"
+              >
+                <div class="ft_sing_button_1_2">
+                  <div style="padding: 8px 0 0 8px">
+                    <div class="ft_sing_button_1_4_5"></div>
+                  </div>
+                </div>
+              </div>
+              <div style="display: table-cell; vertical-align: middle">
+                <div class="ft_sing_button_1_3" style="margin-top: -1px">
+                  Affiliate program
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            onclick="Sen.Help();"
+            class="fk_select_none ft_sing_button_1_1"
+            style="margin-top: 10px; display: none"
+          >
+            <div style="display: table; width: 100%">
+              <div
+                style="display: table-cell; vertical-align: middle; width: 50px"
+              >
+                <div class="ft_sing_button_1_2">
+                  <div style="padding: 8px 0 0 8px">
+                    <div
+                      id="ft_help_3"
+                      class="ft_font_40 ft_help_1"
+                      style="margin: -3px 0 0 -3px; display: none"
+                    ></div>
+                    <div class="ft_sing_button_1_4_8"></div>
+                  </div>
+                </div>
+              </div>
+              <div style="display: table-cell; vertical-align: middle">
+                <div class="ft_sing_button_1_3" style="margin-top: -1px">
+                  Support
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            onclick="Sen.History();"
+            class="fk_select_none ft_sing_button_1_1"
+            style="margin-top: 10px"
+          >
+            <div style="display: table; width: 100%">
+              <div
+                style="display: table-cell; vertical-align: middle; width: 50px"
+              >
+                <div class="ft_sing_button_1_2">
+                  <div style="padding: 7px 0 0 8px">
+                    <div class="ft_sing_button_1_4_4"></div>
+                  </div>
+                </div>
+              </div>
+              <div style="display: table-cell; vertical-align: middle">
+                <div class="ft_sing_button_1_3" style="margin-top: -1px">
+                  Operations history
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="height: 1px; background: #d1d1d1; margin: 20px 0; width: 75%"
+          ></div>
+          <div
+            onclick="Sen.Setting();"
+            class="fk_select_none ft_sing_button_1_1"
+          >
+            <div style="display: table; width: 100%">
+              <div
+                style="display: table-cell; vertical-align: middle; width: 50px"
+              >
+                <div class="ft_sing_button_1_2">
+                  <div style="padding: 7px 0 0 7px">
+                    <div class="ft_sing_button_1_4_6"></div>
+                  </div>
+                </div>
+              </div>
+              <div style="display: table-cell; vertical-align: middle">
+                <div class="ft_sing_button_1_3" style="margin-top: -1px">
+                  Settings and authorization
+                </div>
+              </div>
+            </div>
+          </div>
 
+          <div
+            style="height: 1px; background: #d1d1d1; margin: 20px 0; width: 75%"
+          ></div>
+          <div
+            onclick="Sen.Date_1();"
+            class="fk_select_none ft_sing_button_1_1"
+          >
+            <div style="display: table; width: 100%">
+              <div
+                style="display: table-cell; vertical-align: middle; width: 50px"
+              >
+                <div class="ft_sing_button_1_2">
+                  <div style="padding: 8px 0 0 8px">
+                    <div class="ft_sing_button_1_4_9"></div>
+                  </div>
+                </div>
+              </div>
+              <div style="display: table-cell; vertical-align: middle">
+                <div class="ft_sing_button_1_3" style="margin-top: -1px">
+                  About the bot`s work
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            onclick="Sen.Comment();"
+            class="fk_select_none ft_sing_button_1_1"
+            style="margin-top: 10px"
+          >
+            <div style="display: table; width: 100%">
+              <div
+                style="display: table-cell; vertical-align: middle; width: 50px"
+              >
+                <div class="ft_sing_button_1_2">
+                  <div style="padding: 7px 0 0 8px">
+                    <div class="ft_sing_button_1_4_11"></div>
+                  </div>
+                </div>
+              </div>
+              <div style="display: table-cell; vertical-align: middle">
+                <div class="ft_sing_button_1_3" style="margin-top: -1px">
+                  Reviews
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            onclick="Sen.Contact();"
+            class="fk_select_none ft_sing_button_1_1"
+            style="margin-top: 10px"
+          >
+            <div style="display: table; width: 100%">
+              <div
+                style="display: table-cell; vertical-align: middle; width: 50px"
+              >
+                <div class="ft_sing_button_1_2">
+                  <div style="padding: 6px 0 0 6px">
+                    <div class="ft_sing_button_1_4_10"></div>
+                  </div>
+                </div>
+              </div>
+              <div style="display: table-cell; vertical-align: middle">
+                <div class="ft_sing_button_1_3" style="margin-top: -1px">
+                  Contacts
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item">
-                <a href="" class="list-group-item-action bg-white text-decoration-none fs-5 ">Home</a>
-            </li>
-            <li class="list-group-item">
-                <a href="" class="list-group-item-action bg-white text-decoration-none fs-5 ">Package</a>
-            </li>
-            <li class="list-group-item">
-                <a href="" class="list-group-item-action bg-white text-decoration-none fs-5 ">Recharge</a>
-            </li>
-            <li class="list-group-item">
-                <a href="" class="list-group-item-action bg-white text-decoration-none fs-5 ">Withdraws</a>
-            </li>
-            <li class="list-group-item">
-                <a href="" class="list-group-item-action bg-white text-decoration-none fs-5 ">Transfer Balance</a>
-            </li>
-            <li class="list-group-item">
-                <a href="" class="list-group-item-action bg-white text-decoration-none fs-5 ">Sponser List</a>
-            </li>
-            <li class="list-group-item">
-                <a href="" class="list-group-item-action bg-white text-decoration-none fs-5 ">Payments</a>
-            </li>
-            <li class="list-group-item">
-                <a href="" class="list-group-item-action bg-white text-decoration-none fs-5 ">Notice</a>
-            </li>
-            <li class="list-group-item">
-                <a href="" class="list-group-item-action bg-white text-decoration-none fs-5 ">Support</a>
-            </li>
-            <li class="list-group-item">
-                <a href="" class="list-group-item-action bg-white text-decoration-none fs-5 ">Change Password</a>
-            </li>
-            <li class="list-group-item">
-                <a href="" class="list-group-item-action bg-white text-decoration-none fs-5 ">Logout</a>
-            </li>
-          </ul>
       </div>
     </div>
 

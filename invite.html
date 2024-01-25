@@ -7,7 +7,7 @@
       name="viewport"
       content="target-densitydpi=device-dpi, initial-scale=1.0, user-scalable=no"
     />
-    <title>History</title>
+    <title>Invite</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/css/line-awesome.min.css"
@@ -86,7 +86,7 @@
       }
     </style>
   </head>
-  <body style="overflow-x: hidden; background: #f6f7f9">
+  <body style="overflow-x: hidden; background: #f6f7f9;">
     <!-- header -->
     <div class="card mb-3 border-0 rounded-0 bg-header">
       <div class="card-body px-3 py-1">
@@ -113,411 +113,343 @@
       </div>
     </div>
 
+    <!-- header close  -->
+
     <!-- content  -->
     <div class="ft_box_12_2">
       <div id="ProfileBlock">
         <div class="ft_box_padding">
+          <div class="ft_prof_box_top_flex">
+            <div class="ft_box_2_1">
+              <div class="ft_box_left">
+                <div
+                  class="ft_box_shadow_2"
+                  style="
+                    padding: 25px 30px 25px 30px;
+                    border-radius: 10px;
+                    background: #ffffff;
+                  "
+                >
+                  <div class="ft_font_02">Referral link</div>
+                  <div class="ft_font_05" style="margin: 10px 0 0 0px">
+                    Invite friends and acquaintances and get
+                    <b><span id="ft_friend_amount_1">12</span>$</b> in the form
+                    of remuneration
+                  </div>
+                  <div
+                    class="ft_font_11"
+                    style="
+                      margin: 20px -30px 0 -30px;
+                      background: #f5f3f1;
+                      padding: 15px 30px;
+                    "
+                  >
+                    <b><span id="ft_friend_amount_2">12</span>$</b> for each
+                    referral
+                  </div>
+                  <div class="ft_font_05" style="margin-top: 15px">
+                    Copy your referral link and send it to friends and
+                    acquaintances as a recommendation to register,
+                    <img
+                      src="/templates/Default/img/lenta.png"
+                      style="width: 16px"
+                    />
+                    <span
+                      onclick="Sen.Invitations();"
+                      class="ft_font_49"
+                      style="border-bottom: 1px dashed #1d891b; cursor: pointer"
+                      >How to invite?</span
+                    >
+                  </div>
+                  <div style="margin-top: 15px">
+                    <div style="position: relative">
+                      <input
+                        id="ft_referer"
+                        class="ft_data_in_text ft_data_in_input ft_border_box"
+                        type="text"
+                        name="ft_referer"
+                        required=""
+                        placeholder=" "
+                        aria-required="true"
+                        inputmode="text"
+                        autocomplete="off"
+                        maxlength="1000"
+                        value="https://oolink.store/ref715762_t7v"
+                      />
+                      <span
+                        class="ft_data_in_text_title ft_data_in_title fk_select_none"
+                        >Your link</span
+                      >
+                    </div>
+                  </div>
+                  <div style="padding-top: 15px">
+                    <div
+                      onclick="ClipData('ft_referer', 'https://oolink.store/ref715762_t7v');"
+                      class="ft_balance_button_plus ft_font_06"
+                    >
+                      Copy
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="ft_box_2_2 ft_box_top_1">
+              <div class="ft_box_righ">
+                <div
+                  class="ft_box_shadow_2"
+                  style="
+                    padding: 25px 30px 25px 30px;
+                    border-radius: 10px;
+                    background: #ffffff;
+                  "
+                >
+                  <div class="ft_font_02">Affiliate program</div>
+                  <div class="ft_font_05" style="margin-top: 10px">
+                    Company <b>UooBot</b> provides a generous reward of
+                    <b><span id="ft_friend_amount_3">12</span>$</b> for each
+                    registered person through a referral link, as well as
+                    deductions for a three-level affiliate program
+                    <b>7% / 3% / 1%</b> from the amount of each wallet
+                    replenishment by a referral.
+                  </div>
+                </div>
+                <div style="margin-top: 20px">
+                  <div style="display: table; width: 100%">
+                    <div style="display: table-cell">
+                      <div style="padding-right: 10px">
+                        <div
+                          class="ft_box_shadow_2"
+                          style="
+                            padding: 20px 10px 17px 10px;
+                            border-radius: 10px;
+                            background: #ffffff;
+                            text-align: center;
+                          "
+                        >
+                          <div>
+                            <div style="display: inline-block">
+                              <div
+                                class="ft_font_12"
+                                style="
+                                  background: #74b573;
+                                  border-radius: 100%;
+                                  width: 35px;
+                                  height: 35px;
+                                  text-align: center;
+                                  display: table-cell;
+                                  vertical-align: middle;
+                                "
+                              >
+                                1
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            class="ft_font_02"
+                            style="
+                              text-transform: uppercase;
+                              font-size: 16px;
+                              margin-top: 10px;
+                            "
+                          >
+                            Level
+                          </div>
+                          <div
+                            class="ft_font_05"
+                            style="
+                              margin-top: 10px;
+                              border-top: 1px dashed #dcdcdc;
+                              padding-top: 10px;
+                            "
+                          >
+                            Partners invited
+                          </div>
+                          <div
+                            id="ft_referal_1"
+                            class="ft_font_10"
+                            style="padding: 12px 0 2px 0"
+                          >
+                            0
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div style="display: table-cell">
+                      <div style="padding-left: 10px; padding-right: 10px">
+                        <div
+                          class="ft_box_shadow_2"
+                          style="
+                            padding: 20px 10px 17px 10px;
+                            border-radius: 10px;
+                            background: #ffffff;
+                            text-align: center;
+                          "
+                        >
+                          <div>
+                            <div style="display: inline-block">
+                              <div
+                                class="ft_font_12"
+                                style="
+                                  background: #5f82a6;
+                                  border-radius: 100%;
+                                  width: 35px;
+                                  height: 35px;
+                                  text-align: center;
+                                  display: table-cell;
+                                  vertical-align: middle;
+                                "
+                              >
+                                2
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            class="ft_font_02"
+                            style="
+                              text-transform: uppercase;
+                              font-size: 16px;
+                              margin-top: 10px;
+                            "
+                          >
+                            Level
+                          </div>
+                          <div
+                            class="ft_font_05"
+                            style="
+                              margin-top: 10px;
+                              border-top: 1px dashed #dcdcdc;
+                              padding-top: 10px;
+                            "
+                          >
+                            Partners invited
+                          </div>
+                          <div
+                            id="ft_referal_2"
+                            class="ft_font_10"
+                            style="padding: 12px 0 2px 0"
+                          >
+                            0
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div style="display: table-cell">
+                      <div style="padding-left: 10px">
+                        <div
+                          class="ft_box_shadow_2"
+                          style="
+                            padding: 20px 10px 17px 10px;
+                            border-radius: 10px;
+                            background: #ffffff;
+                            text-align: center;
+                          "
+                        >
+                          <div>
+                            <div style="display: inline-block">
+                              <div
+                                class="ft_font_12"
+                                style="
+                                  background: #d0d0d0;
+                                  border-radius: 100%;
+                                  width: 35px;
+                                  height: 35px;
+                                  text-align: center;
+                                  display: table-cell;
+                                  vertical-align: middle;
+                                  color: #525252;
+                                "
+                              >
+                                3
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            class="ft_font_02"
+                            style="
+                              text-transform: uppercase;
+                              font-size: 16px;
+                              margin-top: 10px;
+                            "
+                          >
+                            Level
+                          </div>
+                          <div
+                            class="ft_font_05"
+                            style="
+                              margin-top: 10px;
+                              border-top: 1px dashed #dcdcdc;
+                              padding-top: 10px;
+                            "
+                          >
+                            Partners invited
+                          </div>
+                          <div
+                            id="ft_referal_3"
+                            class="ft_font_10"
+                            style="padding: 12px 0 2px 0"
+                          >
+                            0
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ft_box_padding" style="margin-top: 20px">
           <div
             class="ft_box_shadow_2"
             style="
-              padding: 25px 30px 30px 30px;
+              padding: 25px 30px 25px 30px;
               border-radius: 10px;
               background: #ffffff;
             "
           >
             <div>
-              <div class="ft_font_18">Withdraw</div>
+              <div class="ft_font_18">Referral List</div>
               <div class="ft_font_05" style="margin: 10px 0 0 0px">
-                In this section, you can create a request for the withdrawal of
-                funds from your wallet. When withdrawing funds, no commission is
-                charged and amounts to <b>0%</b> ( zero ).
+                This block contains a general list of partners invited by you
+                using an affiliate link and partners invited directly by your
+                referrals of the first and second levels.
               </div>
             </div>
             <div
               id="PageBoxLin"
               style="background: #f5f3f1; height: 2px; margin: 20px 0 20px 0"
             ></div>
-
-            <div class="ft_font_27" style="margin-top: 25px">
-              Electronic payment systems
-            </div>
-            <div style="margin-top: 20px">
-              <div class="ft_prof_box_top_flex">
-                <div class="ft_box_6_1">
-                  <div class="ft_box_left_2">
-                    <div
-                      onclick="Sen.BackForm(1);"
-                      class="ft_box_shadow_2 ft_ps_1"
-                    >
-                      <div style="display: table; width: 100%">
-                        <div
-                          style="
-                            display: table-cell;
-                            vertical-align: middle;
-                            width: 60px;
-                          "
-                        >
-                          <div>
-                            <img
-                              src="/templates/Default/img/ps/back/ps_1.png"
-                              class="ft_ps_2"
-                            />
-                          </div>
-                        </div>
-                        <div
-                          style="display: table-cell; vertical-align: middle"
-                        >
-                          <div
-                            style="
-                              padding-left: 15px;
-                              border-left: 2px solid #e5e5e5;
-                            "
-                          >
-                            <div class="ft_font_35">Payeer</div>
-                            <div class="ft_font_36" style="margin-top: 2px">
-                              Withdrawal via<br />Payeer
-                            </div>
-                          </div>
+            <input
+              id="ft_int_page_load"
+              name="ft_int_page_load"
+              type="hidden"
+              value="0"
+            />
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <div
+                        class="ft_font_18"
+                        style="padding-top: 30px; text-align: center"
+                      >
+                        No referrals
+                      </div>
+                      <div
+                        class="ft_font_05"
+                        style="margin-top: 20px; text-align: center"
+                      >
+                        <div style="max-width: 300px; display: inline-block">
+                          So far, no one has registered using your link..
                         </div>
                       </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="ft_box_6_2 ft_box_top_2">
-                  <div class="ft_box_center_2">
-                    <div
-                      onclick="Sen.BackForm(2);"
-                      class="ft_box_shadow_2 ft_ps_1"
-                    >
-                      <div style="display: table; width: 100%">
-                        <div
-                          style="
-                            display: table-cell;
-                            vertical-align: middle;
-                            width: 60px;
-                          "
-                        >
-                          <div>
-                            <img
-                              src="/templates/Default/img/ps/back/ps_2.png"
-                              class="ft_ps_2"
-                            />
-                          </div>
-                        </div>
-                        <div
-                          style="display: table-cell; vertical-align: middle"
-                        >
-                          <div
-                            style="
-                              padding-left: 15px;
-                              border-left: 2px solid #e5e5e5;
-                            "
-                          >
-                            <div class="ft_font_35">PerfectMoney</div>
-                            <div class="ft_font_36" style="margin-top: 2px">
-                              Withdrawal via<br />PerfectMoney
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="ft_box_6_3 ft_box_top_2">
-                  <div class="ft_box_righ_2">
-                    <div
-                      onclick="Sen.BackForm(3);"
-                      class="ft_box_shadow_2 ft_ps_1"
-                    >
-                      <div style="display: table; width: 100%">
-                        <div
-                          style="
-                            display: table-cell;
-                            vertical-align: middle;
-                            width: 60px;
-                          "
-                        >
-                          <div>
-                            <img
-                              src="/templates/Default/img/ps/back/ps_3.png"
-                              class="ft_ps_2"
-                            />
-                          </div>
-                        </div>
-                        <div
-                          style="display: table-cell; vertical-align: middle"
-                        >
-                          <div
-                            style="
-                              padding-left: 15px;
-                              border-left: 2px solid #e5e5e5;
-                            "
-                          >
-                            <div class="ft_font_35">AdvCash</div>
-                            <div class="ft_font_36" style="margin-top: 2px">
-                              Withdrawal via<br />AdvCash
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div style="margin-top: 10px">
-              <div class="ft_prof_box_top_flex">
-                <div class="ft_box_6_1">
-                  <div class="ft_box_left_2">
-                    <div
-                      onclick="Sen.BackForm(4);"
-                      class="ft_box_shadow_2 ft_ps_1"
-                    >
-                      <div style="display: table; width: 100%">
-                        <div
-                          style="
-                            display: table-cell;
-                            vertical-align: middle;
-                            width: 60px;
-                          "
-                        >
-                          <div>
-                            <img
-                              src="/templates/Default/img/ps/back/ps_4.png"
-                              class="ft_ps_2"
-                            />
-                          </div>
-                        </div>
-                        <div
-                          style="display: table-cell; vertical-align: middle"
-                        >
-                          <div
-                            style="
-                              padding-left: 15px;
-                              border-left: 2px solid #e5e5e5;
-                            "
-                          >
-                            <div class="ft_font_35">QIWI Wallet</div>
-                            <div class="ft_font_36" style="margin-top: 2px">
-                              Withdrawal via<br />QIWI Wallet
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="ft_font_27" style="margin-top: 25px">
-              Cryptocurrency
-            </div>
-            <div style="margin-top: 20px">
-              <div class="ft_prof_box_top_flex">
-                <div class="ft_box_6_1">
-                  <div class="ft_box_left_2">
-                    <div
-                      onclick="Sen.BackForm(6);"
-                      class="ft_box_shadow_2 ft_ps_1"
-                    >
-                      <div style="display: table; width: 100%">
-                        <div
-                          style="
-                            display: table-cell;
-                            vertical-align: middle;
-                            width: 60px;
-                          "
-                        >
-                          <div>
-                            <img
-                              src="/templates/Default/img/ps/back/ps_6.png"
-                              class="ft_ps_2"
-                            />
-                          </div>
-                        </div>
-                        <div
-                          style="display: table-cell; vertical-align: middle"
-                        >
-                          <div
-                            style="
-                              padding-left: 15px;
-                              border-left: 2px solid #e5e5e5;
-                            "
-                          >
-                            <div class="ft_font_35">TRON</div>
-                            <div class="ft_font_36" style="margin-top: 2px">
-                              Withdrawal via<br />TRON
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="ft_box_6_2 ft_box_top_2">
-                  <div class="ft_box_center_2">
-                    <div
-                      onclick="Sen.BackForm(7);"
-                      class="ft_box_shadow_2 ft_ps_1"
-                    >
-                      <div style="display: table; width: 100%">
-                        <div
-                          style="
-                            display: table-cell;
-                            vertical-align: middle;
-                            width: 60px;
-                          "
-                        >
-                          <div>
-                            <img
-                              src="/templates/Default/img/ps/back/ps_7.png"
-                              class="ft_ps_2"
-                            />
-                          </div>
-                        </div>
-                        <div
-                          style="display: table-cell; vertical-align: middle"
-                        >
-                          <div
-                            style="
-                              padding-left: 15px;
-                              border-left: 2px solid #e5e5e5;
-                            "
-                          >
-                            <div class="ft_font_35">DogeCoin</div>
-                            <div class="ft_font_36" style="margin-top: 2px">
-                              Withdrawal via<br />DogeCoin
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="ft_box_6_3 ft_box_top_2">
-                  <div class="ft_box_righ_2"></div>
-                </div>
-              </div>
-            </div>
-            <div class="ft_font_27" style="margin-top: 25px">Bank cards</div>
-            <div style="margin-top: 20px">
-              <div class="ft_prof_box_top_flex">
-                <div class="ft_box_6_1">
-                  <div class="ft_box_left_2">
-                    <div
-                      onclick="Sen.BackForm(8);"
-                      class="ft_box_shadow_2 ft_ps_1"
-                    >
-                      <div style="display: table; width: 100%">
-                        <div
-                          style="
-                            display: table-cell;
-                            vertical-align: middle;
-                            width: 60px;
-                          "
-                        >
-                          <div>
-                            <img
-                              src="/templates/Default/img/ps/back/ps_8.png"
-                              class="ft_ps_2"
-                            />
-                          </div>
-                        </div>
-                        <div
-                          style="display: table-cell; vertical-align: middle"
-                        >
-                          <div
-                            style="
-                              padding-left: 15px;
-                              border-left: 2px solid #e5e5e5;
-                            "
-                          >
-                            <div class="ft_font_35">VISA CARD</div>
-                            <div class="ft_font_36" style="margin-top: 2px">
-                              Withdrawal via<br />VISA CARD
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="ft_box_6_2 ft_box_top_2">
-                  <div class="ft_box_center_2">
-                    <div
-                      onclick="Sen.BackForm(9);"
-                      class="ft_box_shadow_2 ft_ps_1"
-                    >
-                      <div style="display: table; width: 100%">
-                        <div
-                          style="
-                            display: table-cell;
-                            vertical-align: middle;
-                            width: 60px;
-                          "
-                        >
-                          <div>
-                            <img
-                              src="/templates/Default/img/ps/back/ps_9.png"
-                              class="ft_ps_2"
-                            />
-                          </div>
-                        </div>
-                        <div
-                          style="display: table-cell; vertical-align: middle"
-                        >
-                          <div
-                            style="
-                              padding-left: 15px;
-                              border-left: 2px solid #e5e5e5;
-                            "
-                          >
-                            <div class="ft_font_35">MasterCard</div>
-                            <div class="ft_font_36" style="margin-top: 2px">
-                              Withdrawal via<br />MasterCard
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="ft_box_6_3 ft_box_top_2">
-                  <div class="ft_box_righ_2">
-                    <div
-                      onclick="Sen.BackForm(10);"
-                      class="ft_box_shadow_2 ft_ps_1"
-                    >
-                      <div style="display: table; width: 100%">
-                        <div
-                          style="
-                            display: table-cell;
-                            vertical-align: middle;
-                            width: 60px;
-                          "
-                        >
-                          <div>
-                            <img
-                              src="/templates/Default/img/ps/back/ps_10.png"
-                              class="ft_ps_2"
-                            />
-                          </div>
-                        </div>
-                        <div
-                          style="display: table-cell; vertical-align: middle"
-                        >
-                          <div
-                            style="
-                              padding-left: 15px;
-                              border-left: 2px solid #e5e5e5;
-                            "
-                          >
-                            <div class="ft_font_35">Mir</div>
-                            <div class="ft_font_36" style="margin-top: 2px">
-                              Withdrawal via<br />Mir
-                            </div>
-                          </div>
-                        </div>
+                      <div style="text-align: center; margin: 20px 0">
+                        <img
+                          src="image/reffer.png"
+                          style="max-width: 170px"
+                        />
                       </div>
                     </div>
                   </div>
@@ -587,6 +519,7 @@
           </div>
         </div>
       </div>
+      <!-- footer close  -->
     </div>
 
     <div
